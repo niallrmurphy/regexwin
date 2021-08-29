@@ -1,0 +1,34 @@
+{
+
+  "manifest_version": 2,
+  "name": "Regexwin",
+  "version": "1.0",
+
+  "description": "Puts tab URLs matching a regexp into a separate window.",
+
+  "icons": {
+    "48": "icons/window.png",
+    "19": "icons/window19.png"
+  },
+
+  "permissions": [ "tabs", "activeTab" ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Regex into window",
+    "default_popup": "regexwin.html",
+    "default_icon": { "19": "icons/window19.png" }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["regexwin.js"]
+    }
+  ]
+
+}
